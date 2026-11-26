@@ -27,17 +27,52 @@ frontend/
     shared/    # Общие компоненты и HTTP-клиент
     css/       # Глобальные стили, шрифты и CSS-переменные
     mocks/     # Демонстрационные данные
-  Dockerfile          # Сборка фронтенда и образ Nginx
+  package.json        # Зависимости и команды разработки, сборки и линтинга
+  package-lock.json   # Точные версии зависимостей для npm ci
+  vite.config.ts      # Настройки Vite и плагина React
+  Dockerfile          # Образ фронтенда для запуска Vite
 backend/
-  config/             # Настройки Django, корневые маршруты и WSGI
-  apps/               # Django-приложения по предметным областям
-  manage.py
+  ...
   Dockerfile
-compose.yaml          # Сервисы для разработки
+docker-compose.yaml   # Сервисы для разработки
 compose.prod.yaml     # Сервисы для рабочего окружения
 ```
 
 Страницы получают данные через функции своих модулей, например `listCollections(classId)` и `getCollection(collectionId)`. Один и тот же интерфейс функций позволяет использовать демонстрационные данные при вёрстке и HTTP-запросы при работе с API.
+
+## Локальный запуск через Docker Compose
+
+Конфигурация `docker-compose.yaml` запускает фронтенд на Vite. Выполняйте команды из корня репозитория.
+
+### Windows
+
+Установите и запустите Docker Desktop, затем откройте PowerShell в корне репозитория. [Установка Docker Desktop на Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+```powershell
+docker compose version
+docker compose up --build
+```
+
+### Linux
+
+Установите Docker Engine и плагин Docker Compose для своего дистрибутива. Убедитесь, что Docker запущен, и откройте терминал в корне репозитория. [Установка Docker Engine](https://docs.docker.com/engine/install/) · [Установка плагина Compose](https://docs.docker.com/compose/install/linux/)
+
+```bash
+docker compose version
+docker compose up --build
+```
+
+### Открытие сайта
+
+После запуска Docker Compose перейдите в браузере по адресу [localhost:80](http://localhost:80).
+
+### Остановка
+
+Чтобы остановить запуск в активном терминале, нажмите `Ctrl+C`. Чтобы остановить и удалить контейнеры и сеть проекта, выполните из корня репозитория команду, одинаковую для Windows и Linux.
+
+```bash
+docker compose down
+```
 
 ## Роли и модель учёта
 
