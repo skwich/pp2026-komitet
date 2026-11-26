@@ -1,0 +1,30 @@
+.register-card {
+  width: 420px;
+  padding: 24px 40px 32px;
+}
+
+.register-card .login-title {
+  font-size: 40px;
+}
+
+.role-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.role-tab {
+  flex: 1;
+  padding: 6px 0;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.role-tab-active {
+  color: #000;
+  border-bottom-color: #000;
+}
