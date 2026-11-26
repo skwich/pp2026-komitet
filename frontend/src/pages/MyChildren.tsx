@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './MyChildren.css'
+import '../css/MyChildren.css'
 
 const children = [
   {
