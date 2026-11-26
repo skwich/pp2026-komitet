@@ -1,5 +1,15 @@
-import StarterPage from '../pages/StarterPage.tsx'
+import { Routes, Route, Navigate } from "react-router-dom";
+import LoginPage from "../pages/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage";
 
-export default function App() {
-  return <StarterPage />
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/registration" element={<RegistrationPage/>} />
+    </Routes>
+  );
 }
+
+export default App;
