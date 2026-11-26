@@ -1,0 +1,197 @@
+#root:has(.my-children) {
+  width: 100%;
+  border: 0;
+}
+
+.my-children {
+  min-height: 100svh;
+  background: #fdfdfd;
+  color: #080808;
+  color-scheme: light;
+  font: 16px/1.25 'Segoe UI', Arial, sans-serif;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.my-children__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 64px;
+  padding: 0 clamp(16px, 4.35vw, 50px);
+  box-sizing: border-box;
+  border: 1px solid #c8c8c8;
+  color: #767676;
+}
+
+.my-children__breadcrumbs a {
+  color: inherit;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.my-children__breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.my-children__chevron {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+}
+
+.my-children__chevron--back {
+  width: 7px;
+  height: 7px;
+  border-width: 1px;
+  transform: rotate(-135deg);
+}
+
+.my-children__panel {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 892px;
+  margin: 45px auto 43px;
+  padding: 28px 35px 57px;
+  border: 1px solid #d4d4d4;
+  border-radius: 12px;
+}
+
+.my-children__header,
+.my-children__summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.my-children h1,
+.my-children h2 {
+  color: inherit;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0;
+}
+
+.my-children h1 {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.my-children h2 {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.my-children__account {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 8px 0 6px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.my-children__account:disabled {
+  opacity: 1;
+}
+
+.my-children__total {
+  display: grid;
+  gap: 5px;
+  box-sizing: border-box;
+  width: min(284px, 100%);
+  margin: 11px 0 8px;
+  padding: 8px 12px 9px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.my-children__total strong {
+  font-size: 26px;
+}
+
+.my-children__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 10px;
+}
+
+.my-children__filters label {
+  display: grid;
+  gap: 3px;
+  width: min(226px, 100%);
+}
+
+.my-children__filters select {
+  width: 100%;
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.my-children__summary {
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+
+.my-children__table-scroll {
+  overflow-x: auto;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+}
+
+.my-children table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.my-children th,
+.my-children td {
+  box-sizing: border-box;
+  padding: 4px;
+  border-right: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+.my-children th {
+  height: 30px;
+  background: #d7d7d7;
+  font-weight: 400;
+}
+
+.my-children td {
+  height: 46.5px;
+}
+
+.my-children tr > :last-child {
+  border-right: 0;
+}
+
+.my-children tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .my-children__panel {
+    margin-block: 20px;
+    padding: 20px 16px 28px;
+  }
+}
