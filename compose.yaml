@@ -1,8 +1,6 @@
+
 services:
-  frontend:
-    build: ./frontend
-    ports:
-      - 80:5173
+  # База данных
   db:
     image: postgres:18-alpine
     container_name: committees_db
@@ -28,6 +26,16 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+
+    ports:
+      - "80:5173"
+
+    restart: unless-stopped
 
 volumes:
   postgres_data:

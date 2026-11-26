@@ -1,15 +1,39 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+import { loginUser } from "../shared/api/auth";
+
 import "../css/LoginPage.css";
 
 function LoginPage() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    navigate("/home");
+
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      await loginUser({
+        phone,
+        password,
+      });
+
+      navigate("/home");
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Не удалось выполнить вход.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -23,6 +47,8 @@ function LoginPage() {
           placeholder="введите номер телефона"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+          autoComplete="tel"
+          required
         />
 
         <input
@@ -31,10 +57,18 @@ function LoginPage() {
           placeholder="введите пароль"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          autoComplete="current-password"
+          required
         />
 
-        <button className="login-button" type="submit">
-          Войти
+        {error && (
+          <p className="auth-error" role="alert">
+            {error}
+          </p>
+        )}
+
+        <button className="login-button" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Выполняется вход..." : "Войти"}
         </button>
 
         <p className="login-footer">
