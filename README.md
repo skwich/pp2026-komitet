@@ -116,3 +116,12 @@ python manage.py migrate
 # Создать собственного администратора:
 
 python manage.py createsuperuser
+
+# Запуск бэкенда:
+
+python manage.py runserver
+
+# Запуск фронта
+
+cd frontend
+npm run dev
