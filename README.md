@@ -106,13 +106,24 @@ cd ..
 
 # Из корня репозитория:
 
-docker compose up -d db
+docker compose up -d
 
 # Подготовка базы данных
 
 cd backend
+Copy-Item .env.example .env
+Copy-Item frontend/.env.example frontend/.env.local
 python manage.py migrate
 
 # Создать собственного администратора:
 
 python manage.py createsuperuser
+
+# Запускаем бэк
+
+python manage.py runserver
+
+# Запускаем фронт
+
+cd frontend
+npm run dev
