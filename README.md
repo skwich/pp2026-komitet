@@ -38,8 +38,6 @@ docker-compose.yaml   # Сервисы для разработки
 compose.prod.yaml     # Сервисы для рабочего окружения
 ```
 
-Страницы получают данные через функции своих модулей, например `listCollections(classId)` и `getCollection(collectionId)`. Один и тот же интерфейс функций позволяет использовать демонстрационные данные при вёрстке и HTTP-запросы при работе с API.
-
 ## Локальный запуск через Docker Compose
 
 Конфигурация `docker-compose.yaml` запускает фронтенд на Vite. Выполняйте команды из корня репозитория.
@@ -64,7 +62,7 @@ docker compose up --build
 
 ### Открытие сайта
 
-После запуска Docker Compose перейдите в браузере по адресу [localhost:80](http://localhost:80).
+После запуска Docker Compose перейдите в браузере по адресу [localhost:5173](http://localhost:5173).
 
 ### Остановка
 
